@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Create Quiz</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card>">
+        <div class="card-body">
+          <form [formGroup]="quizForm" (ngSubmit)="onFormSubmit(quizForm.value)">
+            <div class="form-group">
+              <label for="name">Quiz Name</label>
+              <input type="text" class="form-control" formControlName="QuizName" id="name" required>
+              <span *ngIf="!quizForm.get('QuizName').value && quizForm.get('QuizName').touched"></span>
+            </div>
+            <div class="form-group">
+              <label for="alterEgo">Quiz Image</label>
+              <input type="text" class="form-control" formControlName="QuizImage" id="alterEgo">
+              <span *ngIf="!quizForm.get('QuizImage').value && quizForm.get('QuizImage').touched"></span>
+            </div>
+            <div class="form-group">
+              <label for="alterEgo">Quiz Route</label>
+              <input type="text" class="form-control" formControlName="Route" id="alterEgo">
+              <span *ngIf="!quizForm.get('Route').value && quizForm.get('Route').touched"></span>
+            </div>
+            <button type="submit" [disabled]="!quizForm.valid" class="btn btn-primary">Insert</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <table datatable class="table table-striped row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Quiz Name</th>
+            <th>Quiz Image</th>
+            <th>Quiz Route</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let quiz of allQuiz">
+            <td>{{quiz.quizID}}</td>
+            <td>{{quiz.quizName}}</td>
+            <td>{{quiz.quizImage}}</td>
+            <td>{{quiz.route}}</td>
+            <td>
+                <button class="btn btn-sm btn-primary"> Show details</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
