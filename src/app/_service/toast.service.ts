@@ -19,5 +19,38 @@ export class ToastService {
   }
 
 
+  showStandard(msg) {
+    this.show(msg, {
+      delay: 2000,
+      autohide: true
+    });
+  }
+
+  showSuccess(msg) {
+    this.show(msg, {
+      classname: 'bg-success text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Toast Header'
+    });
+  }
+  showError(msg) {
+    this.show(msg, {
+      classname: 'bg-danger text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Error!!!'
+    });
+  }
+
+  showCustomToast(customTpl) {
+    this.show(customTpl, {
+      classname: 'bg-info text-light',
+      delay: 3000,
+      autohide: true
+    });
+  }
+
+
   
 }

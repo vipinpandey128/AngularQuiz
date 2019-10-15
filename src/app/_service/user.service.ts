@@ -4,7 +4,6 @@ import { BaseService } from './base.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Tocken } from '../_model/model.interface';
 
 @Injectable()
 
@@ -28,8 +27,8 @@ export class UserService extends BaseService {
     this.baseUrl = configService.getApiURI();
   }
 
-  register(email: string, password: string, firstName: string, lastName: string, location: string): Observable<boolean> {
-    const body = JSON.stringify({ email, password, firstName, lastName, location });
+  register(email: string, password: string): Observable<boolean> {
+    const body = JSON.stringify({ email, password });
     return this.http.post(this.baseUrl + '/Auth/register', body, this.headers)
       .pipe(map(res => true))
       .catch(this.handleError);

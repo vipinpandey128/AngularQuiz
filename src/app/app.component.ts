@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ToastMessageService } from './_service/toast-message.service';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +8,8 @@ import { ToastMessageService } from './_service/toast-message.service';
 export class AppComponent {
   title = 'ans';
 
-  constructor(public toasterServices:ToastMessageService){
+  constructor(){
      
   }
-
-  showError()
-  {
-    this.toasterServices.showError('Something is wrong??');
-  }
-
-  showSuccess()
-  {
-
-  }
-
-  showStandard()
-  {
-
-  }
+ 
 }

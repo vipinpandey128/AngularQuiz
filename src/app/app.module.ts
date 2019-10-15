@@ -20,7 +20,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { ConfigService } from './utils/config.service';
 import {ToastrModule} from 'ngx-toastr';
 import { ToastService } from './_service/toast.service';
-import { ToastMessageService } from './_service/toast-message.service';
 import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
@@ -47,11 +46,12 @@ import { ToastComponent } from './toast/toast.component';
         { path: 'quiz', component: QuizComponent },
         { path: 'question', component: QuestionComponent },
         { path: 'login', component: LoginComponent },
+        { path: 'register', component: RegisterComponent },
         { path: 'home', component: HomeComponent },
     ]),
     NgbModule
   ],
-  providers: [UserService, QuizService, QuestionService, ConfigService,ToastService,ToastMessageService],
+  providers: [UserService, QuizService, QuestionService, ConfigService,ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
